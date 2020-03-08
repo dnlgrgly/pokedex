@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { view } from "react-easy-state";
+import pokedex from "./store";
+import List from "./components/List";
+import "./App.css";
 
-function App() {
+export default view(() => {
+  if (pokedex.isLoading) {
+    pokedex.fetch();
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <div className="header">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"/>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          A demo Pokédex app built with GraphQL and{" "}
+          <a href="https://github.com/risingstack/react-easy-state">
+            react-easy-state
+          </a>
+          .
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <div className="content-body">
+        {pokedex.isLoading ? <p>Loading...</p> : <List />}
+      </div>
     </div>
   );
-}
-
-export default App;
+});
