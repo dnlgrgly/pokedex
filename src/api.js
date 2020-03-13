@@ -12,7 +12,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
-export const fetch = async () => {
+export const fetchList = async () => {
   let data;
 
   await client
@@ -30,8 +30,66 @@ export const fetch = async () => {
       `
     })
     .then(result => {
-      console.log(result.data.pokemons);
       data = result.data.pokemons;
+    });
+
+  return data;
+};
+
+export const fetchPokemon = async (id) => {
+  let data;
+
+  await client
+    .query({
+      query: gql`
+        {
+          pokemon(id: "${id}") {
+            id
+            name
+            image
+            classification
+            types
+            weight {
+              minimum
+              maximum
+            }
+            height {
+              minimum
+              maximum
+            }
+            resistant
+            attacks {
+              fast {
+                name
+                type
+                damage
+              }
+              special {
+                name
+                type
+                damage
+              }
+            }
+            weaknesses
+            fleeRate
+            maxCP
+            maxHP
+            evolutions {
+              id
+              name
+              image
+            }
+            evolutionRequirements {
+              amount
+              name
+            }
+          }
+        }
+      `
+    })
+    .then(result => {
+      console.log(result.data.pokemon);
+      data = result.data.pokemon;
     });
 
   return data;

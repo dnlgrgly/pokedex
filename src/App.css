@@ -18,7 +18,7 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 0.5rem;
   margin: 2rem;
@@ -26,6 +26,7 @@ body {
 }
 
 .pokemon-card {
+  cursor: pointer;
   display: flex;
   flex-direction: column;
   width: 10rem;
@@ -43,6 +44,84 @@ body {
   object-fit: contain;
 }
 
+.modal-container {
+  z-index: 1000;
+  background: linear-gradient(
+    135deg,
+    rgba(164, 218, 152, 0.5),
+    rgba(50, 203, 171, 0.5)
+  );
+  color: black;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  margin: 8rem auto 0 auto;
+  padding: 3rem 5rem;
+  width: 70%;
+  border-radius: 1rem;
+}
+
+.modal-content h2 {
+  text-align: center;
+}
+
+.modal-content img {
+  max-width: 15rem;
+  max-height: 15rem;
+  margin: -10rem auto 2rem auto;
+  background: transparent;
+  mix-blend-mode: multiply;
+}
+
+.modal-content .type {
+  margin: 0 0.4rem 0 0;
+}
+
+.modal-center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.modal-center .type-container {
+  margin-top: .5rem;
+  justify-content: center;
+}
+
+.modal-type-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.modal-type-container b {
+  margin-right: .5rem;
+}
+
+.modal-table-container {
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.5rem;
+}
+
+.modal-table {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+.modal-table > * {
+  margin-bottom: .5rem;
+}
+
 @media (max-width: 730px) {
   .content-body {
     margin: 1rem;
@@ -51,7 +130,7 @@ body {
 
   .pokemon-card {
     width: 38%;
-    margin: .5rem 2.5%;
+    margin: 0.5rem 2.5%;
     padding: 1.25rem 3.5%;
     border-radius: 0.5rem;
   }
