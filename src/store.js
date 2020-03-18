@@ -3,19 +3,25 @@ import * as api from "./api";
 
 const pokedex = store({
   isModalOpen: false,
-  isLoading: true,
   pokemons: [],
+  isPokemonsLoading: true,
   selectedPokemon: null,
+  isSelectedPokemonLoading: true,
   async fetchList() {
-    pokedex.isLoading = true;
+    pokedex.isPokemonsLoading = true;
     pokedex.pokemons = await api.fetchList();
-    pokedex.isLoading = false;
+    pokedex.isPokemonsLoading = false;
   },
   async fetchPokemon(id) {
+    pokedex.isSelectedPokemonLoading = true;
     pokedex.selectedPokemon = await api.fetchPokemon(id);
+    pokedex.isSelectedPokemonLoading = false;
   },
-  toggleModal() {
-    pokedex.isModalOpen = !pokedex.isModalOpen;
+  hideModal() {
+    pokedex.isModalOpen = false;
+  },
+  showModal() {
+    pokedex.isModalOpen = true;
   }
 });
 

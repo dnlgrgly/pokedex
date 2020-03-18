@@ -1,17 +1,18 @@
 import React from "react";
+import { view } from "react-easy-state";
 import Type from "./Type";
 
-export const Attack = attack => {
-  console.log(attack);
+export const Attack = view(attack => {
+  const { name, damage, type } = attack.attack;
   return (
     <div className="attack">
       <div>
-        <b>{attack.name}</b>
-        <p>Damage: {attack.damage}</p>
+        <b>{name}</b>
+        <p>Damage: {damage}</p>
       </div>
-      {/* <Type type={attack.type} /> */}
+      <Type type={type} />
     </div>
   );
-};
+});
 
 export default Attack;

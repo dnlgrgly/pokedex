@@ -24,7 +24,7 @@ export default view(() => {
       </div>
       <div className="content-body">
         {pokedex.isModalOpen && <Modal />}
-        {pokedex.isLoading ? <p>Loading...</p> : <List />}
+        {pokedex.isPokemonsLoading ? <p>Loading...</p> : <List />}
       </div>
     </div>
   );

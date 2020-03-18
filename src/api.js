@@ -88,7 +88,6 @@ export const fetchPokemon = async (id) => {
       `
     })
     .then(result => {
-      console.log(result.data.pokemon);
       data = result.data.pokemon;
     });
 
