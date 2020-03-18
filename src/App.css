@@ -135,30 +135,11 @@ body {
   display: flex;
 }
 
-@media (max-width: 730px) {
-  .content-body {
-    margin: 1rem;
-    padding: 0.75rem;
-  }
-
-  .pokemon-card {
-    width: 38%;
-    margin: 0.5rem 2.5%;
-    padding: 1.25rem 3.5%;
-    border-radius: 0.5rem;
-  }
-
-  .pokemon-card > img {
-    width: 6rem;
-    height: 6rem;
-    margin: 0 auto 1.5rem auto;
-  }
-}
-
 .type-container {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .evolution-container {
@@ -169,7 +150,7 @@ body {
 .evolution {
   padding: 1rem;
   border: 2px solid rgba(164, 218, 152, 0.5);
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   margin-right: 1.25rem;
 }
 
@@ -275,4 +256,60 @@ body {
 
 .type-water {
   background-color: rgb(97, 169, 217);
+}
+
+@media (max-width: 730px) {
+  .content-body {
+    margin: 1rem;
+    padding: 0.75rem;
+  }
+
+  .pokemon-card {
+    width: 38%;
+    margin: 0.5rem 2.5%;
+    padding: 1.25rem 3.5%;
+    border-radius: 0.5rem;
+  }
+
+  .pokemon-card > img {
+    width: 6rem;
+    height: 6rem;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .modal-content {
+    width: calc(95% - 3rem);
+    padding: 1.5rem;
+    margin: 2rem auto;
+  }
+
+  .modal-content h2, .modal-content h3 {
+    margin-top: .5rem;
+  }
+
+  .modal-header {
+    align-items: center;
+    text-align: center;
+  }
+
+  .modal-content img {
+    margin: 0;
+  }
+
+  .pokemon-card-mini img {
+    margin: 0 auto;
+  }
+
+  .modal-header-content > .type-container {
+    justify-content: center;
+  }
+
+  .modal-header,
+  .modal-table-container {
+    flex-direction: column;
+  }
+
+  .modal-table {
+    width: 100%;
+  }
 }

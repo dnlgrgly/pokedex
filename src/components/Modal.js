@@ -67,8 +67,8 @@ export default view(() => {
                     </p>
 
                     <div className="modal-type-container">
-                      <b>Resistancy: </b>
                       <div className="type-container">
+                        <b>Resistancy: </b>
                         {resistant.map(type => (
                           <Type key={type} type={type} />
                         ))}
@@ -76,8 +76,8 @@ export default view(() => {
                     </div>
 
                     <div className="modal-type-container">
-                      <b>Weaknesses: </b>
                       <div className="type-container">
+                        <b>Weaknesses: </b>
                         {weaknesses.map(type => (
                           <Type key={type} type={type} />
                         ))}
