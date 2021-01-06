@@ -4,7 +4,7 @@ import { createHttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 
 const httpLink = createHttpLink({
-  uri: "https://graphql-pokemon.now.sh/"
+  uri: "https://graphql-pokemon2.vercel.app"
 });
 
 const client = new ApolloClient({
